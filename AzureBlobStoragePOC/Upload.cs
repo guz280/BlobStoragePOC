@@ -1,0 +1,65 @@
+﻿using Azure;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using AzureBlobStoragePOC.Models;
+using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AzureBlobStoragePOC
+{
+	static class Upload
+	{
+        public static async Task<BlobResponseDto> UploadAsync(Stream stream, string blobFileName, string storageConnectionString, string storageContainerName)
+        {
+            // Create new upload response object that we can return to the requesting method
+            BlobResponseDto response = new();
+
+            // Get a reference to a container named in appsettings.json and then create it
+            BlobContainerClient container = new BlobContainerClient(storageConnectionString, storageContainerName);
+            //await container.CreateAsync();
+            try
+            {
+                // Get a reference to the blob just uploaded from the API in a container from configuration settings
+                BlobClient client = container.GetBlobClient(blobFileName);
+
+                // Open a stream for the file we want to upload
+                await using (Stream? data = stream)//.OpenReadStream())
+                {
+                    // Upload the file async
+                    await client.UploadAsync(data);
+                }
+
+                // Everything is OK and file got uploaded
+                response.Status = $"File {blobFileName} Uploaded Successfully";
+                response.Error = false;
+                response.Blob.Uri = client.Uri.AbsoluteUri;
+                response.Blob.Name = client.Name;
+
+            }
+            // If the file already exists, we catch the exception and do not upload it
+            catch (RequestFailedException ex)
+                when (ex.ErrorCode == BlobErrorCode.BlobAlreadyExists)
+            {
+                response.Status = $"File with name {blobFileName} already exists. Please use another name to store your file.";
+                response.Error = true;
+                return response;
+            }
+            // If we get an unexpected error, we catch it here and return the error message
+            catch (RequestFailedException ex)
+            {
+                // Log error to console and create a new response we can return to the requesting method
+                response.Status = $"Unexpected error: {ex.StackTrace}. Check log with StackTrace ID.";
+                response.Error = true;
+                return response;
+            }
+
+            // Return the BlobUploadResponse object
+            return response;
+        }
+    }
+}
