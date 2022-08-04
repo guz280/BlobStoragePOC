@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureBlobStoragePOCConsole", "AzureBlobStoragePOC\AzureBlobStoragePOCConsole.csproj", "{C7AE05AD-2A23-4BD3-BBFC-91C3B4B31430}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureBlobStorage.WebApi", "..\..\..\..\Users\jcauchi\Downloads\Azure-Blob-Storage-with-ASP.NET-Core-Web-API-master\Azure-Blob-Storage-with-ASP.NET-Core-Web-API-master\AzureBlobStorageWebApi\AzureBlobStorage.WebApi.csproj", "{29B9CF52-CB67-406D-83E8-6337A8D646E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureBlobStoragePOCConsole", "AzureBlobStoragePOC\AzureBlobStoragePOCConsole.csproj", "{C7AE05AD-2A23-4BD3-BBFC-91C3B4B31430}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SasTutorial", "..\..\..\..\Users\jcauchi\Downloads\storage-dotnet-sas-getting-started-master\storage-dotnet-sas-getting-started-master\SasTutorial\SasTutorial.csproj", "{90468732-2315-439A-A02B-6E4B737D89C4}"
 EndProject
@@ -19,10 +17,6 @@ Global
 		{C7AE05AD-2A23-4BD3-BBFC-91C3B4B31430}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7AE05AD-2A23-4BD3-BBFC-91C3B4B31430}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7AE05AD-2A23-4BD3-BBFC-91C3B4B31430}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29B9CF52-CB67-406D-83E8-6337A8D646E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29B9CF52-CB67-406D-83E8-6337A8D646E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29B9CF52-CB67-406D-83E8-6337A8D646E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29B9CF52-CB67-406D-83E8-6337A8D646E8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{90468732-2315-439A-A02B-6E4B737D89C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{90468732-2315-439A-A02B-6E4B737D89C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90468732-2315-439A-A02B-6E4B737D89C4}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -34,8 +34,7 @@ namespace AzureBlobStoragePOCConsole
 			}
 			catch (Exception)
 			{
-
-				throw;
+				return false;
 			}
 			
 		}
@@ -72,8 +71,7 @@ namespace AzureBlobStoragePOCConsole
 			}
 			catch (Exception)
 			{
-
-				throw;
+				return null;
 			}
 
 		}

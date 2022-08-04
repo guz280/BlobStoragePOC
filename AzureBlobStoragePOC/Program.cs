@@ -30,7 +30,10 @@ namespace AzureBlobStoragePOC
 			// ---------------------------------------------------------------------------------------
 			// ---------------------------------------------------------------------------------------
 
-			// SAS - gives you more control of the access to give
+
+
+
+			// Using SAS - gives you more control of the access to give
 			string blobSasUrl = "https://novicd.blob.core.windows.net/services-customerdocuments?sp=rcl&st=2022-08-03T10:07:31Z&se=2023-08-03T18:07:31Z&spr=https&sv=2021-06-08&sr=c&sig=zPF%2BbrsIRlP1oWhPQ3B6yvlLS%2BmO2%2BBg0KaeTjg5DVY%3D";
 			string blobName = "Trial1";
 
