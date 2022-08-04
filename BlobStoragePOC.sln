@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureBlobStoragePOCConsole"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SasTutorial", "..\..\..\..\Users\jcauchi\Downloads\storage-dotnet-sas-getting-started-master\storage-dotnet-sas-getting-started-master\SasTutorial\SasTutorial.csproj", "{90468732-2315-439A-A02B-6E4B737D89C4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureBlobStorage.WebApi", "AzureBlobStorage.WebApi\AzureBlobStorage.WebApi.csproj", "{C015D047-ED68-4451-BCEB-45768B97BA48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{90468732-2315-439A-A02B-6E4B737D89C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90468732-2315-439A-A02B-6E4B737D89C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90468732-2315-439A-A02B-6E4B737D89C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C015D047-ED68-4451-BCEB-45768B97BA48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C015D047-ED68-4451-BCEB-45768B97BA48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C015D047-ED68-4451-BCEB-45768B97BA48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C015D047-ED68-4451-BCEB-45768B97BA48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

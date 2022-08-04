@@ -93,6 +93,30 @@ namespace AzureBlobStoragePOCConsole
 			}
 			catch (Exception)
 			{
+				return false;
+			}
+
+		}
+
+
+
+
+		public static async Task<bool> GetList(string blobSasUrl)
+		{
+			try
+			{
+				Uri uri = new Uri(blobSasUrl);
+				BlobContainerClient container = new BlobContainerClient(uri);
+
+				//Return a reference to a blob to be created in the container.
+				var blob = container.GetBlobs();
+
+				var r = await container.ExistsAsync();
+
+				return true;
+			}
+			catch (Exception)
+			{
 
 				throw;
 			}

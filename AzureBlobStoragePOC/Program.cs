@@ -45,7 +45,7 @@ namespace AzureBlobStoragePOC
 			var delete = await SASImplementation.Delete(blobSasUrl, blobName);
 
 
-
+			var sasGetList = await SASImplementation.GetList(blobSasUrl);
 
 
 
