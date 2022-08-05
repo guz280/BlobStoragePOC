@@ -34,10 +34,12 @@ namespace AzureBlobStoragePOC
 
 
 			// Using SAS - gives you more control of the access to give
-			string blobSasUrl = "https://novicd.blob.core.windows.net/services-customerdocuments?sp=rcl&st=2022-08-03T10:07:31Z&se=2023-08-03T18:07:31Z&spr=https&sv=2021-06-08&sr=c&sig=zPF%2BbrsIRlP1oWhPQ3B6yvlLS%2BmO2%2BBg0KaeTjg5DVY%3D";
-			string blobName = "Trial1";
+			//OLD string blobSasUrl = "https://novicd.blob.core.windows.net/services-customerdocuments?sp=rcl&st=2022-08-03T10:07:31Z&se=2023-08-03T18:07:31Z&spr=https&sv=2021-06-08&sr=c&sig=zPF%2BbrsIRlP1oWhPQ3B6yvlLS%2BmO2%2BBg0KaeTjg5DVY%3D";
+			string blobSasUrl = "https://novicd.blob.core.windows.net/services-customerdocuments?sp=rcl&st=2022-08-05T09:18:03Z&se=2035-08-05T17:18:03Z&spr=https&sv=2021-06-08&sr=c&sig=fKCFLkDxHdDG33oJpFStbEkERSDKaTK3bZJ2v3zHeJk%3D";
+			string blobName = "Trial4";
 
 			var sasUpload = await SASImplementation.UploadAsync(blobSasUrl, blobName, stream);
+			var sasUpload2 = await SASImplementation.UploadAsync(blobSasUrl, blobName, stream);
 			var sasDownloadContent = await SASImplementation.DownloadAsync(blobSasUrl, blobName);
 			// save to disk
 			File.WriteAllBytes("TaghnaLiGibnaLura.png", sasDownloadContent.Value.Content.ToArray());
@@ -45,7 +47,7 @@ namespace AzureBlobStoragePOC
 			var delete = await SASImplementation.Delete(blobSasUrl, blobName);
 
 
-			var sasGetList = await SASImplementation.GetList(blobSasUrl);
+			var sasGetList = await SASImplementation.GetList(blobSasUrl, blobName);
 
 
 

@@ -22,15 +22,30 @@ namespace AzureBlobStoragePOCConsole
 				//Return a reference to a blob to be created in the container.
 				BlobClient blob = container.GetBlobClient(blobName);
 				// Open a stream for the file we want to upload
-				await using (Stream? data = stream)//.OpenReadStream())
+				Response<BlobContentInfo> r = null;
+
+				// https://stackoverflow.com/questions/17043631/using-stream-read-vs-binaryreader-read-to-process-binary-streams
+				// use a stream when you have(only) byte[] to move.As is common in a lot of streaming scenarios.
+				// use BinaryWriter and BinaryReader when you have any other basic type(including simple byte) of
+				// data to process.
+				// Their main purpose is conversion of the built-in framework types to byte[].
+
+
+				using (Stream? data = stream)//.OpenReadStream())
 				{
 					// Upload the file async
-					var r = await blob.UploadAsync(data);
+					r = await blob.UploadAsync(data, overwrite: false);
+					//data.Dispose();
 				}
 
-				//blob.Upload(BinaryData.FromStream(stream));
+				if (r.GetRawResponse().Status == 201 && r.GetRawResponse().IsError == false)
+					return true;
 
-				return true;
+
+
+				//var r2 = await blob.UploadAsync(BinaryData.FromStream(stream));
+
+				return false;
 			}
 			catch (Exception)
 			{
@@ -101,7 +116,7 @@ namespace AzureBlobStoragePOCConsole
 
 
 
-		public static async Task<bool> GetList(string blobSasUrl)
+		public static async Task<bool> GetList(string blobSasUrl, string blobName)
 		{
 			try
 			{
@@ -109,9 +124,15 @@ namespace AzureBlobStoragePOCConsole
 				BlobContainerClient container = new BlobContainerClient(uri);
 
 				//Return a reference to a blob to be created in the container.
-				var blob = container.GetBlobs();
+				var blob1 = container.GetBlobs();
 
-				var r = await container.ExistsAsync();
+
+				BlobClient blob = container.GetBlobClient(blobName);
+
+				//BlobDownloadInfo download = blob.Download();
+				bool fileExists = await blob.ExistsAsync();
+
+				//var r = await container.ExistsAsync();
 
 				return true;
 			}

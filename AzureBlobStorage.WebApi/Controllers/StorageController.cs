@@ -1,5 +1,4 @@
-﻿using AzureBlobStorage.WebApi.Models;
-using AzureBlobStorage.WebApi.Repository;
+﻿using AzureBlobStorage.WebApi.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;

@@ -1,7 +1,6 @@
 ﻿using Azure;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
-using AzureBlobStorage.WebApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
